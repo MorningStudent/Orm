@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  pg:
+    image: postgres:15.4-alpine3.18
+    restart: always
+    environment:
+      - POSTGRES_USED=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=e-shop-hb
+    
+    ports:
+      - 5435:5432
+
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
