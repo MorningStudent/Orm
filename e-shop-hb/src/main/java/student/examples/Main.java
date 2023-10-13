@@ -1,7 +1,5 @@
 package student.examples;
 
-import java.util.UUID;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -33,7 +31,6 @@ public class Main {
         cart.getCartItems().add(cartItem);
         client.getCarts().add(cart);
         client.getAddresses().add(address);
-        address.setClient(client);
         product_1.setPrice(moneyProduct_1);
         product_1.setCategory(category_1);
 
@@ -43,9 +40,12 @@ public class Main {
         em.persist(product_1);
         em.persist(moneyProduct_1);
         em.persist(client);
-        em.persist(address);
-        em.persist(cart);
-        em.persist(cartItem);
+        //em.persist(address); <-----| with combination of @ElementCollection and @Embeddable, we don't need to persist
+        em.persist(cart);     //     | the @Embeddable, otherwise we have an error called
+        em.persist(cartItem); //     | "UnknownEntityTypeException: Unable to locate persister"
         em.getTransaction().commit();
+
+
+
     }
 }

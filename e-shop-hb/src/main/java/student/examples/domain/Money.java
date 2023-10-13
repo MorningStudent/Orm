@@ -35,12 +35,6 @@ public class Money {
     @Column(length = 4)
     private String charCode;
 
-    // @Getter
-    // @Setter
-    // @ManyToOne
-    // @JoinColumn(name = "product_id")
-    // private Product product;
-
     public Money(int amount, String charCode) {
         this.amount = amount;
         this.charCode = charCode;

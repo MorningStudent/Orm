@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -41,7 +42,7 @@ public class Client {
 
     @Getter
     @Setter
-    @OneToMany(mappedBy = "client")
+    @ElementCollection
     private List<Address> addresses = new ArrayList<>();
 
     @Getter
