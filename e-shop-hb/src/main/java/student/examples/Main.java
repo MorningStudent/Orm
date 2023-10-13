@@ -6,6 +6,7 @@ import jakarta.persistence.Persistence;
 import student.examples.domain.Address;
 import student.examples.domain.Cart;
 import student.examples.domain.CartItem;
+import student.examples.domain.CartState;
 import student.examples.domain.Category;
 import student.examples.domain.Client;
 import student.examples.domain.Currency;
